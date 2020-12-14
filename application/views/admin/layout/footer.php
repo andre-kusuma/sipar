@@ -1,3 +1,7 @@
+<!-- untuk editor -->
+<script>
+	initSample();
+</script>
 </div>
               <!-- /.card-body -->
             </div>

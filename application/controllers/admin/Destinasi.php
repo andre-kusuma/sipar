@@ -18,7 +18,8 @@ class Destinasi extends CI_Controller {
             'title' => 'Administrator',
             'isi' => 'admin/destinasi',
             'card_title' => 'Data Destinasi',
-            'destinasi' => $this->db->get('tb_destinasi')->result_array()
+            'destinasi' => $this->db->join('tb_kategori','tb_kategori.id_kategori=tb_destinasi.id_kategori')->get('tb_destinasi')->result_array(),
+            
 
         );
         $this->load->view('admin/layout/wrapper', $data, FALSE);
@@ -32,6 +33,7 @@ class Destinasi extends CI_Controller {
             'title' => 'Data Destinasi',
             'isi' => 'admin/tambah_destinasi',
             'card_title' => 'Data Destinasi',
+            'kategori'  => $this->db->get('tb_kategori')->result_array()
         );
         $this->load->view('admin/layout/wrapper', $data, FALSE);
     }
@@ -50,7 +52,9 @@ class Destinasi extends CI_Controller {
         }
         $data= [
             // 'user' => $this->db->get_where('user',['username' => $this->session->userdata('username');]),
+            'id_kategori'=> $this->input->post('id_kategori'),
             'nama_destinasi'=> $this->input->post('nama_destinasi'),
+            'keterangan'=> $this->input->post('keterangan'),
             'alamat'=> $this->input->post('alamat'),
             'tarif'=> $this->input->post('tarif'),
             'foto' => $_FILES['foto']['name']
@@ -67,6 +71,7 @@ class Destinasi extends CI_Controller {
             'title' => 'Edit Data Destinasi',
             'isi' => 'admin/edit_destinasi',
             'card_title' => 'Edit Data Destinasi',
+            'kategori'  => $this->db->get('tb_kategori')->result_array()
         );
         $data['destinasi'] = $this->My_Models->show_destinasi($id);
         $this->load->view('admin/layout/wrapper', $data, FALSE);

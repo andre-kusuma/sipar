@@ -1,6 +1,6 @@
 <div class="main">
   <div class="header">
     <div class="header_resize">
-        <div class="logo">
-        <h1><a href="index.html">Diva<span>gloss</span> <small>Company Slogan Here</small></a></h1>
-        </div>
+      <div class="logo">
+        <h1><a href="index.html">Wisata<span></span> <small>Desa Jagaraga</small></a></h1>
+      </div>
